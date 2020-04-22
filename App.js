@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, TextInput, TouchableOpacity, json, TouchableHighlight, loginBtn, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput, TouchableOpacity, json, TouchableHighlight, loginBtn, AsyncStorage, ScrollView } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
@@ -107,7 +107,7 @@ function Societies({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={styles.logo2}> UniSoc</Text>
-
+      <ScrollView>
       <TouchableHighlight
         onPress={() => navigation.navigate('Soc1')}
         style={styles.Soc}>
@@ -163,9 +163,62 @@ function Societies({ navigation }) {
         style={styles.Home}>
         <Text style={styles.HomeText}>Home</Text>
       </TouchableHighlight>
+      </ScrollView>
     </View>
   );
 }
+function Event({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.logo2}> UniSoc</Text>
+      <Text style={styles.logo3}> Event: </Text>
+      <Text style={styles.logo3}> Date: </Text>
+      <Text style={styles.logo3}> Time: </Text>
+      <Text style={styles.logo3}> Location: </Text>
+      <TouchableHighlight
+        onPress={() => navigation.navigate('Soc5')}
+        style={styles.Soc}>
+        <Text style={styles.SocText}>Go back to society</Text>
+      </TouchableHighlight>
+     </View>
+  );
+}
+
+function CreateEvent({ navigation }) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.logo2}> UniSoc</Text>
+      <Text style={styles.logo3}> Create Event </Text>
+        <View style={styles.inputView} >
+          <TextInput  
+            style={styles.inputText}
+            placeholder="Date" 
+            placeholderTextColor="#003f5c"
+            onChangeText={text => this.setState({user:text})}/>
+        </View>
+        <View style={styles.inputView} >
+          <TextInput  
+            style={styles.inputText}
+            placeholder="Time" 
+            placeholderTextColor="#003f5c"
+            onChangeText={text => this.setState({user:text})}/>
+        </View>
+        <View style={styles.inputView} >
+          <TextInput  
+            style={styles.inputText}
+            placeholder="Location" 
+            placeholderTextColor="#003f5c"
+            onChangeText={text => this.setState({user:text})}/>
+        </View>
+      <TouchableHighlight
+        onPress={() => navigation.navigate('Event')}
+        style={styles.Soc}>
+        <Text style={styles.SocText}>Create</Text>
+      </TouchableHighlight>
+     </View>
+  );
+}
+
 //function DetailsScreen({ navigation }) {
   //return (
  
@@ -291,6 +344,13 @@ const styles = StyleSheet.create({
     color: '#20b2aa',
     marginBottom: 40,
     alignSelf:"flex-start",
+  },
+  logo3: {
+    fontWeight: 'bold',
+    fontSize: 35,
+    color: '#20b2aa',
+    marginBottom: 40,
+    alignSelf:"center",
   },
   StudentsBt: {
     width: '80%',
